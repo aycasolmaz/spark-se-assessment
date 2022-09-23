@@ -33,3 +33,4 @@ class ProductionConfig(BaseConfig):
     SECRET_KEY = 'diagnostic_secret'
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///diagnostic'
+    

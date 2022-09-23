@@ -55,3 +55,18 @@ class User(db.Model):
             return 'Signature expired. Please log in again.'
         except jwt.InvalidTokenError:
             return 'Invalid token. Please log in again.'
+    
+    def getUsers():
+        users = []
+        userID = [r.id for r in db.session.query(User.id)]
+        userEmail = [r.email for r in db.session.query(User.email)]
+        registeredOn = [r.registered_on for r in db.session.query(User.registered_on)]
+        adminStat = [r.admin for r in db.session.query(User.admin)]
+        for user in range(len(userID)):
+            all = []
+            users.append(userID[user])
+            users.append(userEmail[user])
+            users.append(registeredOn[user])
+            users.append(adminStat[user])
+            all.append(users)
+        return all

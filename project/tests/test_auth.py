@@ -17,7 +17,8 @@ class TestAuthBlueprint(BaseTestCase):
                 )),
                 content_type='application/json'
             )
-            data = json.loads(response.data.decode())
+            print(response)
+            data = json.dumps(response["data"])
             self.assertTrue(data['status'] == 'success')
             self.assertTrue(data['message'] == 'Successfully registered.')
             self.assertTrue(data['auth_token'])
